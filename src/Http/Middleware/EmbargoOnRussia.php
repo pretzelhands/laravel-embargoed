@@ -1,6 +1,6 @@
 <?php
 
-namespace Pretzelhands\Embargoed\Middleware;
+namespace Pretzelhands\Embargoed\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -11,17 +11,15 @@ class EmbargoOnRussia
     /**
      * @param Request $request
      * @param Closure $next
-     * @return mixed
-     * @throws Reader\InvalidDatabaseException
      */
     public function handle($request, Closure $next)
     {
-        $reader = new Reader(__DIR__ . '/resources/data/geoip.mmdb');
+        $reader = new Reader(__DIR__ . '/../../resources/data/geoip.mmdb');
         $record = $reader->country($request->ip());
 
         // Go Ukraine 🇺🇦
         if ($record && $record->country->isoCode === 'RU') {
-            return response()->view('embargoed', [], 403);
+            return response()->view('embargoed::embargoed', [], 403);
         }
 
         return $next($request);
