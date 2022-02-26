@@ -1,0 +1,22 @@
+{
+    "name": "pretzelhands/laravel-embargoed",
+    "description": "Laravel middleware to block all requests from Russia to any Laravel app and display a pro-Ukraine message instead",
+    "type": "laravel-middleware",
+    "require": {
+        "spatie/laravel-package-tools": "^1.11",
+        "geoip2/geoip2": "^2.12",
+        "laravel/framework": "^7.0|^8.0|^9.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pretzelhands\\Embargoed\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Richard Blechinger",
+            "email": "hello@pretzelhands.com"
+        }
+    ]
+}
