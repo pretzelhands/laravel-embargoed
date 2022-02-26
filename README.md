@@ -6,7 +6,7 @@ Middleware to block all requests from Russia to any Laravel app and display a pr
 
 ---
 
-### What does this plugin do?
+### What does this middleware do?
 
 This middleware checks the IP of visitors coming to your site for their origin. If it detects
 a Russian IP, instead of continuing as normal it will block the visit and display a
